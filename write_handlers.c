@@ -19,7 +19,7 @@ int handle_write_char(char c, char buffer[], int flags, int width, int precision
 	UNUSED(precision);
 	UNUSED(size);
 
-	if (flag & F_ZERO)
+	if (flags & F_ZERO)
 		padd = '0';
 
 	buffer[i++] = c;
@@ -30,7 +30,7 @@ int handle_write_char(char c, char buffer[], int flags, int width, int precision
 		buffer[BUFF_SIZE - 1] = '\0';
 
 		for (i = 0; i < width - 1; i++)
-			buffer[BUDD_SIZE - i - 2] = padd;
+			buffer[BUFF_SIZE - i - 2] = padd;
 
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) + write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
@@ -155,7 +155,7 @@ int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, 
 	UNUSED(is_negative);
 	UNUSED(size);
 
-	if (precision == 0 && in == BUFF_SIZE - 2 && buffer[ind] == '0')
+	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 		return (0);
 
 	if (precision > 0 && precision < length)
@@ -225,7 +225,7 @@ int write_pointer(char buffer[], int ind, int length, int width, int flags, char
 			buffer[--ind] = '0';
 
 			if (extra_c)
-				buffer[--ins] = extra_c;
+				buffer[--ind] = extra_c;
 			return (write(1, &buffer[3], i - 3) + write(1, &buffer[ind], length));
 		}
 		else if (!(flags & F_MINUS) && padd == '0')
