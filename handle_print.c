@@ -13,7 +13,8 @@
  * Return: 1 or argument
  */
 
-int handle_print(const char *fmt, int *ind, va_list list, char buffer[], int flags, int width, int precision, int size)
+int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
+	int flags, int width, int precision, int size)
 {
 	int i;
 	int unknown_len = 0;
