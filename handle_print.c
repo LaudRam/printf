@@ -18,7 +18,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[], int fla
 	int i;
 	int unknown_len = 0;
 	int printed_chars = -1;
-	fmt_f fmt_types[] = {
+	fmt_t fmt_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
 		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
