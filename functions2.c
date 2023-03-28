@@ -11,7 +11,8 @@
  * Return: number of chars printed
  */
 
-int print_pointer(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_pointer(va_list types, char buffer[], int flags,
+	int width, int precision, int size)
 {
 	char extra_c = 0, padd = ' ';
 	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1;
@@ -45,7 +46,8 @@ int print_pointer(va_list types, char buffer[], int flags, int width, int precis
 
 	ind++;
 
-	return (write_pointer(buffer, ind, length, width, flags, padd, extra_c, padd_start));
+	return (write_pointer(buffer, ind, length, width,
+		flags, padd, extra_c, padd_start));
 }
 
 /**
@@ -60,7 +62,8 @@ int print_pointer(va_list types, char buffer[], int flags, int width, int precis
  * Return: number of chars printed
  */
 
-int print_non_printable(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_non_printable(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
 	int i = 0, offset = 0;
 	char *str = va_arg(types, char *);
@@ -98,7 +101,8 @@ int print_non_printable(va_list types, char buffer[], int flags, int width, int 
  * Return: number of chars printed
  */
 
-int print_reverse(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_reverse(va_list types, char buffer[], int flags,
+	int width, int precision, int size)
 {
 	char *str;
 	int i;
@@ -141,7 +145,8 @@ int print_reverse(va_list types, char buffer[], int flags, int width, int precis
  * Return: number of chars printed
  */
 
-int print_rot13string(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_rot13string(va_list types, char buffer[], int flags,
+	int width, int precision, int size)
 {
 	char x, *str;
 	unsigned int i, j;
